@@ -30,7 +30,7 @@ namespace OKR_Steam.Business.BS
         public ProcessResult<SteamProfileDatabaseModel> SaveSteamProfileData(SteamProfileRequestModel steamProfileModel)
         {
             var returnData = new ProcessResult<SteamProfileDatabaseModel>();
-            returnData = _steamDataAccess.SaveSteamProfileData(steamProfileModel,_context);
+            returnData = _steamDataAccess.SaveSteamProfileData(steamProfileModel);
             return returnData;
         }
     }

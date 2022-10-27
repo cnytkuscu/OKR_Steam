@@ -9,6 +9,6 @@ namespace OKR_Steam.DataAccess.IDA
     {
         public SteamProfileModel GetSteamProfileDataFromURL(string profileURL);
 
-        public ProcessResult<SteamProfileDatabaseModel> SaveSteamProfileData(SteamProfileRequestModel steamProfileModel, AppDbContext context);
+        public ProcessResult<SteamProfileDatabaseModel> SaveSteamProfileData(SteamProfileRequestModel steamProfileModel);
     }
 }

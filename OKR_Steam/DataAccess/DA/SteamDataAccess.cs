@@ -7,31 +7,41 @@ namespace OKR_Steam.DataAccess.DA
 {
     public class SteamDataAccess : ISteamDataAccess
     {
-        
-        
+        private readonly AppDbContext context;
+        public SteamDataAccess(AppDbContext _context)
+        {
+            context = _context;
+        }
+
 
         public SteamProfileModel GetSteamProfileDataFromURL(string profileURL)
         {
             var returnData = new SteamProfileModel();
 
-            returnData.response = new Response
+
+            var dbData = context.SteamProfile.FirstOrDefault(x => x.profileurl == profileURL);
+            if (dbData != null)
             {
-                players = new List<Player>() { new Player
+                returnData.response = new Response()
                 {
-                    steamid = "76561198137937316",
-                    personaname = "Tyenuc",
-                    lastlogoff = 1665696761,
-                    primaryclanid = "103582791470454970",
-                    timecreated = 1401007545,
-                    personastate = 0,
-                    loccountrycode = "IE"
-                }}
-            };
+                    players = new List<Player>()
+                    {
+                        new Player()
+                        {
+                            steamid = dbData.steamid,
+                            profilestate = dbData.profilestate,
+                            profileurl = dbData.profileurl,
+                            primaryclanid = dbData.primaryclanid
+                        }
+                    }
+                };
+            }
+
 
             return returnData;
         }
 
-        public ProcessResult<SteamProfileDatabaseModel> SaveSteamProfileData(SteamProfileRequestModel steamProfileModel, AppDbContext context)
+        public ProcessResult<SteamProfileDatabaseModel> SaveSteamProfileData(SteamProfileRequestModel steamProfileModel)
         {
             var data = new SteamProfileDatabaseModel();
             data.Id = steamProfileModel.Id;
@@ -39,7 +49,7 @@ namespace OKR_Steam.DataAccess.DA
             data.profileurl = steamProfileModel.profileurl;
             data.steamid = steamProfileModel.steamid;
             data.primaryclanid = steamProfileModel.primaryclanid;
-            data.uniqueId = Guid.NewGuid();
+            data.uniqueId = Guid.NewGuid().ToString();
 
             try
             {
@@ -52,7 +62,7 @@ namespace OKR_Steam.DataAccess.DA
             catch (Exception)
             {
                 // Hata Alındığını varsayıyoruz.
-                return new ProcessResult<SteamProfileDatabaseModel> { HasError = true, ReturnData = data, ErrorMessage = "Error happened while adding new record to database." };                
+                return new ProcessResult<SteamProfileDatabaseModel> { HasError = true, ReturnData = data, ErrorMessage = "Error happened while adding new record to database." };
             }
         }
     }
