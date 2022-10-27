@@ -2,6 +2,7 @@
 using OKR_Steam.Business.BS;
 using OKR_Steam.Business.IBS;
 using OKR_Steam.Controllers.IC;
+using OKR_Steam.DataAccess.DA;
 using OKR_Steam.Models.RequestModels;
 using OKR_Steam.Models.ResponseModels;
 
@@ -12,9 +13,11 @@ namespace OKR_Steam.Controllers.C
     public class SteamController : Controller, ISteamController
     {
         private readonly ISteamBusiness _steamBusiness;
-        public SteamController(ISteamBusiness steamBusiness)
+        private readonly AppDbContext _appDbContext;
+        public SteamController(ISteamBusiness steamBusiness, AppDbContext appDbContext)
         {
             _steamBusiness = steamBusiness;
+            _appDbContext = appDbContext;
         }
 
         #region GET METHODS

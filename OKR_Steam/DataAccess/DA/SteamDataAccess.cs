@@ -7,9 +7,8 @@ namespace OKR_Steam.DataAccess.DA
 {
     public class SteamDataAccess : ISteamDataAccess
     {
-        public SteamDataAccess()
-        {
-        }
+        
+        
 
         public SteamProfileModel GetSteamProfileDataFromURL(string profileURL)
         {
@@ -32,10 +31,10 @@ namespace OKR_Steam.DataAccess.DA
             return returnData;
         }
 
-        public ProcessResult<SteamProfileDatabaseModel> SaveSteamProfileData(SteamProfileRequestModel steamProfileModel)
+        public ProcessResult<SteamProfileDatabaseModel> SaveSteamProfileData(SteamProfileRequestModel steamProfileModel, AppDbContext context)
         {
             var data = new SteamProfileDatabaseModel();
-
+            data.Id = steamProfileModel.Id;
             data.profilestate = steamProfileModel.profilestate;
             data.profileurl = steamProfileModel.profileurl;
             data.steamid = steamProfileModel.steamid;
@@ -46,6 +45,8 @@ namespace OKR_Steam.DataAccess.DA
             {
                 // Database'e ekletiyoruz burada.
                 // Database.Add(data);
+                context.SteamProfile.Add(data);
+                context.SaveChanges();
                 return new ProcessResult<SteamProfileDatabaseModel> { HasError = false, ReturnData = data, ErrorMessage = "" };
             }
             catch (Exception)

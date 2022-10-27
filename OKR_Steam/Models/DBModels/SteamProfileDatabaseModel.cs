@@ -2,6 +2,7 @@
 {
     public class SteamProfileDatabaseModel
     {
+        public string Id { get; set; }
         public Guid uniqueId{ get; set; }
         public string steamid { get; set; }
         public int profilestate { get; set; }
