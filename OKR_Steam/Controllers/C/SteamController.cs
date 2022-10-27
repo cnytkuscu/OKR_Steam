@@ -20,8 +20,16 @@ namespace OKR_Steam.Controllers.C
             _appDbContext = appDbContext;
         }
 
+
         #region GET METHODS
-       
+
+        [HttpGet("GetSteamProfileDataByName/{username}")]
+        public IActionResult GetSteamProfileDataByName(string username)
+        {
+            var returnData = _steamBusiness.GetSteamProfileDataByName(username);
+            return Ok(returnData);
+        }
+
         [HttpGet("GetSteamProfileDataFromURL/{profileURL}")]
         public IActionResult GetSteamProfileDataFromURL(string profileURL)
         {

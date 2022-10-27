@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OKR_Steam.Migrations
 {
-    public partial class InitialDatabaseMigration : Migration
+    public partial class initialdatabasemigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,11 +14,13 @@ namespace OKR_Steam.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    uniqueId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    steamid = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    profilestate = table.Column<int>(type: "int", nullable: false),
-                    profileurl = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    primaryclanid = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    SteamId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ProfileState = table.Column<int>(type: "int", nullable: false),
+                    ProfileURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PrimaryClanId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    TradeURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastUpdated = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -27,23 +27,31 @@ namespace OKR_Steam.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("primaryclanid")
+                    b.Property<DateTime>("LastUpdated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PrimaryClanId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("profilestate")
+                    b.Property<int>("ProfileState")
                         .HasColumnType("int");
 
-                    b.Property<string>("profileurl")
+                    b.Property<string>("ProfileURL")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("steamid")
+                    b.Property<string>("SteamId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("uniqueId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("TradeURL")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

@@ -12,8 +12,8 @@ using OKR_Steam.DataAccess.DA;
 namespace OKR_Steam.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221027114446_InitialDatabaseMigration")]
-    partial class InitialDatabaseMigration
+    [Migration("20221027175736_initialdatabasemigration")]
+    partial class initialdatabasemigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,23 +29,31 @@ namespace OKR_Steam.Migrations
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("primaryclanid")
+                    b.Property<DateTime>("LastUpdated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PrimaryClanId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("profilestate")
+                    b.Property<int>("ProfileState")
                         .HasColumnType("int");
 
-                    b.Property<string>("profileurl")
+                    b.Property<string>("ProfileURL")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("steamid")
+                    b.Property<string>("SteamId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("uniqueId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("TradeURL")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
