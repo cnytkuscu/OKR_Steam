@@ -9,7 +9,7 @@
     {
         public string steamid { get; set; }
         public int communityvisibilitystate { get; set; }
-        public int profilestate { get; set; }
+        public string profilestate { get; set; }
         public string personaname { get; set; }
         public int commentpermission { get; set; }
         public string profileurl { get; set; }

@@ -1,8 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using OKR_Steam.Business.BS;
 using OKR_Steam.Business.IBS;
-using OKR_Steam.Controllers.C;
-using OKR_Steam.Controllers.IC;
 using OKR_Steam.DataAccess.DA;
 using OKR_Steam.DataAccess.IDA;
 
@@ -18,8 +16,8 @@ builder.Services.AddControllers();
 //DbContext Here
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
 
-builder.Services.AddScoped<ISteamBusiness, SteamBusiness>();
-builder.Services.AddScoped<ISteamDataAccess, SteamDataAccess>();
+builder.Services.AddScoped<IUserBusiness, UserBusiness>();
+builder.Services.AddScoped<IUserDataAccess, UserDataAccess>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
