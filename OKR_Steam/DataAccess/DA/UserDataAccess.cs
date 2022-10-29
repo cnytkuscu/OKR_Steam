@@ -4,13 +4,14 @@ using OKR_Steam.Models.DBModels.DBRequestModels;
 using OKR_Steam.Models.DBModels.DBResponseModels;
 using OKR_Steam.Models.RequestModels;
 using OKR_Steam.Models.ResponseModels;
+using static OKR_Steam.Enums.Enums;
 
 namespace OKR_Steam.DataAccess.DA
 {
-    public class SteamDataAccess : ISteamDataAccess
+    public class UserDataAccess : IUserDataAccess
     {
         private readonly AppDbContext context;
-        public SteamDataAccess(AppDbContext _context)
+        public UserDataAccess(AppDbContext _context)
         {
             context = _context;
         }
@@ -54,8 +55,20 @@ namespace OKR_Steam.DataAccess.DA
                 start = start.AddSeconds(dbData.LastUpdated);
                 returnData.LastUpdated = start;
             }
-         
+            return returnData;
+        }
 
+        public SteamProfileDBResponse GetSteamUserStatusByUsername(string username)
+        {
+            var returnData = new SteamProfileDBResponse();
+
+            var dbData = context.SteamProfile.FirstOrDefault(x => x.Username == username);
+            if (dbData != null)
+            {
+                returnData.SteamId = dbData.SteamId;
+                returnData.Username = dbData.Username;
+                returnData.ProfileState = dbData.ProfileState;
+            }
             return returnData;
         }
 
@@ -81,6 +94,29 @@ namespace OKR_Steam.DataAccess.DA
             {
                 // Hata Alındığını varsayıyoruz.
                 return new ProcessResult<SteamProfileDatabaseModel> { HasError = true, ReturnData = data, ErrorMessage = "Error happened while adding new record to database." };
+            }
+        }
+
+        public ProcessResult<SteamProfileDatabaseModel> UpdateSteamProfileDataByUsername(UpdateSteamProfileData steamProfileData)
+        {
+             
+
+            var dbData = context.SteamProfile.FirstOrDefault(x => x.Username == steamProfileData.Username);
+            dbData.ProfileState = steamProfileData.ProfileState;
+            dbData.ProfileURL = steamProfileData.ProfileURL;
+            dbData.PrimaryClanId = Guid.Parse(steamProfileData.PrimaryClanId);
+            dbData.TradeURL = steamProfileData.TradeURL;
+            dbData.LastUpdated = steamProfileData.LastUpdated;
+
+            try
+            {
+                context.SteamProfile.Update(dbData);
+                context.SaveChanges();
+                return new ProcessResult<SteamProfileDatabaseModel> { HasError = false, ReturnData = dbData, ErrorMessage = "" };
+            }
+            catch (Exception)
+            {
+                return new ProcessResult<SteamProfileDatabaseModel> { HasError = true, ReturnData = dbData, ErrorMessage = "Error happened while updating new record to database." };
             }
         }
     }
