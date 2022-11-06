@@ -2,6 +2,7 @@
 using OKR_Steam.Models.DBModels;
 using OKR_Steam.Models.DBModels.DBRequestModels;
 using OKR_Steam.Models.DBModels.DBResponseModels;
+using OKR_Steam.Models.DBModels.Tables;
 using OKR_Steam.Models.RequestModels;
 using OKR_Steam.Models.ResponseModels;
 

@@ -1,10 +1,9 @@
 ﻿using OKR_Steam.DataAccess.IDA;
 using OKR_Steam.Models.DBModels;
 using OKR_Steam.Models.DBModels.DBRequestModels;
-using OKR_Steam.Models.DBModels.DBResponseModels;
-using OKR_Steam.Models.RequestModels;
+using OKR_Steam.Models.DBModels.DBResponseModels; 
 using OKR_Steam.Models.ResponseModels;
-using static OKR_Steam.Enums.Enums;
+ 
 
 namespace OKR_Steam.DataAccess.DA
 {
@@ -22,6 +21,7 @@ namespace OKR_Steam.DataAccess.DA
 
             var dbData = context.SteamProfile.FirstOrDefault(x => x.Username == username);
 
+            returnData.Id = dbData.Id.ToString();
             returnData.SteamId = dbData.SteamId;
             returnData.Username = username;
             returnData.ProfileState = dbData.ProfileState;
