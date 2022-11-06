@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OKR_Steam.Models.DBModels;
+using OKR_Steam.Models.DBModels.Tables;
 
 namespace OKR_Steam.DataAccess.DA
 {
@@ -10,5 +11,9 @@ namespace OKR_Steam.DataAccess.DA
 
         }
         public DbSet<SteamProfileDatabaseModel> SteamProfile { get; set; }
+
+        public DbSet<InventoryDatabaseModel> Inventory { get; set; }
+
+        public DbSet<ItemDatabaseModel> Item { get; set; }
     }
 }

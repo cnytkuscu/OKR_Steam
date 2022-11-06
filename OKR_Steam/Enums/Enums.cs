@@ -10,5 +10,14 @@
             Away = 3,
             DoNotDisturb= 4
         }
+
+        public enum ItemExteriors
+        {
+            FactoryNew = 0,
+            MinimalWear = 1,
+            FieldTested = 2,
+            WellWorn = 3,
+            BattleScarred = 4
+        }
     }
 }

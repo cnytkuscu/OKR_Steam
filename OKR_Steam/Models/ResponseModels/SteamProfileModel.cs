@@ -7,6 +7,7 @@
     }
     public class Player
     {
+        public string Id { get; set; }
         public string steamid { get; set; }
         public int communityvisibilitystate { get; set; }
         public string profilestate { get; set; }

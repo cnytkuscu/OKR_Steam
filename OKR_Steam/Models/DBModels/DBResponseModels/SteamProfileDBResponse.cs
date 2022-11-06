@@ -2,7 +2,7 @@
 {
     public class SteamProfileDBResponse
     {
-        public string UniqueId { get; set; }
+        public string Id { get; set; }
         public string SteamId { get; set; }
         public string Username { get; set; }
         public int ProfileState { get; set; }
