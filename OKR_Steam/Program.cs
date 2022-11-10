@@ -22,6 +22,8 @@ builder.Services.AddScoped<IUserDataAccess, UserDataAccess>();
 builder.Services.AddScoped<IInventoryBusiness, InventoryBusiness>();
 builder.Services.AddScoped<IInventoryDataAccess, InventoryDataAccess>();
 
+builder.Services.AddScoped<IItemBusiness, ItemBusiness>();
+builder.Services.AddScoped<IItemDataAccess, ItemDataAccess>();
 
 
 
