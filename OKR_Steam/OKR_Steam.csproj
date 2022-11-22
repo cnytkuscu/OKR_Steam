@@ -22,6 +22,8 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
+    <Folder Include="Validators\InventoryValidators\" />
+    <Folder Include="Validators\ItemValidators\" />
   </ItemGroup>
 
 </Project>

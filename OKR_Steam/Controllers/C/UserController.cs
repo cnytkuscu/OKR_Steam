@@ -4,6 +4,7 @@ using OKR_Steam.Models.DBModels;
 using OKR_Steam.Models.DBModels.DBRequestModels;
 using OKR_Steam.Models.RequestModels;
 using OKR_Steam.Models.ResponseModels;
+using OKR_Steam.Validators.UserValidators;
 
 namespace OKR_Steam.Controllers.C
 {
@@ -25,7 +26,15 @@ namespace OKR_Steam.Controllers.C
         public ProcessResult<SteamProfileModel> GetSteamProfileDataByName(string username)
         {
             var returnData = new ProcessResult<SteamProfileModel>();
-            returnData = _userBusiness.GetSteamProfileDataByName(username);
+
+            var requestData = new SteamProfileRequestModel()
+            {
+                Username = username
+            };
+            var validation = new UserValidator().Validate(requestData);
+
+            if (validation.IsValid) returnData = _userBusiness.GetSteamProfileDataByName(username);
+            else { returnData.HasError = true; returnData.ErrorMessage = String.Join(" --- ", validation.Errors); }
             return returnData;
         }
 
