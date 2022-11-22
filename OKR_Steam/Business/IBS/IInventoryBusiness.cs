@@ -4,6 +4,6 @@ namespace OKR_Steam.Business.IBS
 {
     public interface IInventoryBusiness
     {
-        public SteamInventoryModel GetSteamInventoryByUsername(string username);
+        public ProcessResult<SteamInventoryModel> GetSteamInventoryByUsername(string username);
     }
 }

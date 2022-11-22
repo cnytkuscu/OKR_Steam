@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OKR_Steam.Business.BS;
 using OKR_Steam.Business.IBS;
-using OKR_Steam.Controllers.IC;
-using OKR_Steam.DataAccess.DA;
+using OKR_Steam.Models.DBModels;
 using OKR_Steam.Models.DBModels.DBRequestModels;
 using OKR_Steam.Models.RequestModels;
 using OKR_Steam.Models.ResponseModels;
@@ -11,37 +9,42 @@ namespace OKR_Steam.Controllers.C
 {
     [ApiController]
     [Route("[controller]")]
-    public class UserController : Controller, IUserController
+    public class UserController : Controller
     {
         private readonly IUserBusiness _userBusiness;
-        
+
         public UserController(IUserBusiness userBusiness)
         {
-            _userBusiness = userBusiness;           
+            _userBusiness = userBusiness;
         }
 
 
         #region GET METHODS
 
         [HttpGet("GetSteamProfileDataByName/{username}")]
-        public IActionResult GetSteamProfileDataByName(string username)
+        public ProcessResult<SteamProfileModel> GetSteamProfileDataByName(string username)
         {
-            var returnData = _userBusiness.GetSteamProfileDataByName(username);
-            return Ok(returnData);
+            var returnData = new ProcessResult<SteamProfileModel>();
+            returnData = _userBusiness.GetSteamProfileDataByName(username);
+            return returnData;
         }
 
         [HttpGet("GetSteamProfileDataFromURL/{profileURL}")]
-        public IActionResult GetSteamProfileDataFromURL(string profileURL)
+        public ProcessResult<SteamProfileModel> GetSteamProfileDataFromURL(string profileURL)
         {
-            var returnData = _userBusiness.GetSteamProfileDataFromURL(profileURL);
+            var returnData = new ProcessResult<SteamProfileModel>();
+            returnData = _userBusiness.GetSteamProfileDataFromURL(profileURL);
 
-            return Ok(returnData);
+            return returnData;
         }
 
         [HttpGet("SteamUserStatusByUsername/{username}")]
-        public IActionResult GetSteamUserStatusByUsername(string username)
+        public ProcessResult<SteamProfileModel> GetSteamUserStatusByUsername(string username)
         {
-            return Ok();
+            var returnData = new ProcessResult<SteamProfileModel>();
+            returnData = _userBusiness.GetSteamUserStatusByUsername(username);
+
+            return returnData;
         }
 
 
@@ -50,10 +53,11 @@ namespace OKR_Steam.Controllers.C
 
         #region POST METHODS
         [HttpPost("SaveSteamProfileData")]
-        public IActionResult SaveSteamProfileData(SteamProfileRequestModel steamProfileModel)
+        public ProcessResult<SteamProfileDatabaseModel> SaveSteamProfileData(SteamProfileRequestModel steamProfileModel)
         {
-            var returnData = _userBusiness.SaveSteamProfileData(steamProfileModel);
-            return Ok(returnData);
+            var returnData = new ProcessResult<SteamProfileDatabaseModel>();
+            returnData = _userBusiness.SaveSteamProfileData(steamProfileModel);
+            return returnData;
         }
 
 
@@ -64,10 +68,11 @@ namespace OKR_Steam.Controllers.C
         #region PUT METHODS
 
         [HttpPut("UpdateSteamProfileDataByUsername")]
-        public IActionResult UpdateSteamProfileDataByUsername(UpdateSteamProfileData steamProfileModel)
+        public ProcessResult<SteamProfileDatabaseModel> UpdateSteamProfileDataByUsername(UpdateSteamProfileData steamProfileModel)
         {
-            var returnData = _userBusiness.UpdateSteamProfileDataByUsername(steamProfileModel);
-            return Ok();
+            var returnData = new ProcessResult<SteamProfileDatabaseModel>();
+            returnData = _userBusiness.UpdateSteamProfileDataByUsername(steamProfileModel);
+            return returnData;
         }
         #endregion
 

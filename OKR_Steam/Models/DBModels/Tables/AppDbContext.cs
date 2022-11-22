@@ -1,12 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OKR_Steam.Models.DBModels;
-using OKR_Steam.Models.DBModels.Tables;
 
-namespace OKR_Steam.DataAccess.DA
+namespace OKR_Steam.Models.DBModels.Tables
 {
     public class AppDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options):base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
 
         }
@@ -15,5 +14,7 @@ namespace OKR_Steam.DataAccess.DA
         public DbSet<InventoryDatabaseModel> Inventory { get; set; }
 
         public DbSet<ItemDatabaseModel> Item { get; set; }
+
+       
     }
 }
