@@ -31,7 +31,7 @@ namespace OKR_Steam.Controllers.C
             {
                 Username = username
             };
-            var validation = new UserValidator().Validate(requestData);
+            var validation = new SteamProfileRequestModelValidator().Validate(requestData);
 
             if (validation.IsValid) returnData = _userBusiness.GetSteamProfileDataByName(username);
             else { returnData.HasError = true; returnData.ErrorMessage = String.Join(" --- ", validation.Errors); }
@@ -42,7 +42,15 @@ namespace OKR_Steam.Controllers.C
         public ProcessResult<SteamProfileModel> GetSteamProfileDataFromURL(string profileURL)
         {
             var returnData = new ProcessResult<SteamProfileModel>();
-            returnData = _userBusiness.GetSteamProfileDataFromURL(profileURL);
+
+            var requestData = new SteamProfileRequestModel()
+            {
+                ProfileURL = profileURL
+            };
+
+            var validation = new SteamProfileRequestModelValidator().Validate(requestData);
+            if (validation.IsValid) returnData = _userBusiness.GetSteamProfileDataFromURL(profileURL);
+            else { returnData.HasError = true; returnData.ErrorMessage = String.Join(" --- ", validation.Errors); }
 
             return returnData;
         }
@@ -51,7 +59,14 @@ namespace OKR_Steam.Controllers.C
         public ProcessResult<SteamProfileModel> GetSteamUserStatusByUsername(string username)
         {
             var returnData = new ProcessResult<SteamProfileModel>();
-            returnData = _userBusiness.GetSteamUserStatusByUsername(username);
+            var requestData = new SteamProfileRequestModel()
+            {
+                Username= username
+            };
+
+            var validation = new SteamProfileRequestModelValidator().Validate(requestData);
+            if (validation.IsValid) returnData = _userBusiness.GetSteamUserStatusByUsername(username);
+            else { returnData.HasError = true; returnData.ErrorMessage = String.Join(" --- ", validation.Errors); }
 
             return returnData;
         }

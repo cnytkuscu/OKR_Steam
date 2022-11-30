@@ -23,9 +23,8 @@ namespace OKR_Steam.Business.BS
         public ProcessResult<SteamProfileModel> GetSteamProfileDataByName(string username)
         {
             var returnData = new ProcessResult<SteamProfileModel>();
+            returnData.ReturnData = new SteamProfileModel();
             var dbResponse = new SteamProfileDBResponse();
-
-            if (String.IsNullOrEmpty(username)) return returnData; // FluentValidaion ile Controller'da yapılacak Request kontrolü  !!!!
 
             dbResponse = _steamDataAccess.GetSteamProfileDataByName(username);
 
