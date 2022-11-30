@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OKR_Steam.Business.IBS;
-using OKR_Steam.Controllers.IC;
+using OKR_Steam.Models.ResponseModels;
 
 namespace OKR_Steam.Controllers.C
 {
     [ApiController]
     [Route("[controller]")]
-    public class ItemController : Controller, IItemController
+    public class ItemController : Controller
     {
         private readonly IItemBusiness _itemBusiness;
         public ItemController(IItemBusiness itemBusiness)
@@ -16,12 +16,13 @@ namespace OKR_Steam.Controllers.C
 
 
         [HttpGet("GetItemDetailByItemId/{itemId}")]
-        public IActionResult GetItemDetailByItemId(Guid itemId)
+        public ProcessResult<SteamItemModel> GetItemDetailByItemId(Guid itemId)
         {
-            var returnData = _itemBusiness.GetItemDetailByItemId(itemId);
-            return Ok(returnData);
+            var returnData = new ProcessResult<SteamItemModel>();
+            returnData = _itemBusiness.GetItemDetailByItemId(itemId);
+            return returnData;
         }
 
-        
+
     }
 }

@@ -8,9 +8,9 @@ namespace OKR_Steam.Business.IBS
 {
     public interface IUserBusiness
     {
-        public SteamProfileModel GetSteamProfileDataFromURL(string profileURL);
-        public SteamProfileModel GetSteamProfileDataByName(string username);
-        public SteamProfileModel GetSteamUserStatusByUsername(string username);
+        public ProcessResult<SteamProfileModel> GetSteamProfileDataFromURL(string profileURL);
+        public ProcessResult<SteamProfileModel> GetSteamProfileDataByName(string username);
+        public ProcessResult<SteamProfileModel> GetSteamUserStatusByUsername(string username);
 
         public ProcessResult<SteamProfileDatabaseModel> SaveSteamProfileData(SteamProfileRequestModel steamProfileModel);
 

@@ -14,9 +14,9 @@ namespace OKR_Steam.DataAccess.IDA
         public SteamProfileDBResponse GetSteamProfileDataByName(string username);
         public SteamProfileDBResponse GetSteamUserStatusByUsername(string username);
 
-        public ProcessResult<SteamProfileDatabaseModel> SaveSteamProfileData(SaveSteamProfileData steamProfileModel);
+        public SteamProfileDatabaseModel SaveSteamProfileData(SaveSteamProfileData steamProfileModel);
 
 
-        public ProcessResult<SteamProfileDatabaseModel> UpdateSteamProfileDataByUsername(UpdateSteamProfileData steamProfileData);
+        public SteamProfileDatabaseModel UpdateSteamProfileDataByUsername(UpdateSteamProfileData steamProfileData);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using OKR_Steam.DataAccess.IDA;
 using OKR_Steam.Models.DBModels.DBResponseModels;
+using OKR_Steam.Models.DBModels.Tables;
 
 namespace OKR_Steam.DataAccess.DA
 {
@@ -15,14 +16,16 @@ namespace OKR_Steam.DataAccess.DA
             var returnData = new SteamItemDBResponseModel();
 
             var dbResponse = context.Item.FirstOrDefault(x => x.Id == itemId);
-
-            returnData.Id = dbResponse.Id;
-            returnData.ItemId = dbResponse.ItemId;
-            returnData.ItemName = dbResponse.ItemName;
-            returnData.ItemCondition = dbResponse.ItemCondition;
-            returnData.ItemFloat = dbResponse.ItemFloat;
-            returnData.HasSticker = dbResponse.HasSticker;
-            returnData.StickerId = dbResponse.StickerId;
+            if (dbResponse != null)
+            {
+                returnData.Id = dbResponse.Id;
+                returnData.ItemId = dbResponse.ItemId;
+                returnData.ItemName = dbResponse.ItemName;
+                returnData.ItemCondition = dbResponse.ItemCondition;
+                returnData.ItemFloat = dbResponse.ItemFloat;
+                returnData.HasSticker = dbResponse.HasSticker;
+                returnData.StickerId = dbResponse.StickerId;
+            }
 
             return returnData;
 

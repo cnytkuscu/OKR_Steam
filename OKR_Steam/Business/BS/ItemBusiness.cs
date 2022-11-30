@@ -1,6 +1,6 @@
 ﻿using OKR_Steam.Business.IBS;
-using OKR_Steam.DataAccess.DA;
 using OKR_Steam.DataAccess.IDA;
+using OKR_Steam.Models.DBModels.Tables;
 using OKR_Steam.Models.ResponseModels;
 
 namespace OKR_Steam.Business.BS
@@ -15,19 +15,35 @@ namespace OKR_Steam.Business.BS
             _context = context;
         }
 
-        public SteamItemModel GetItemDetailByItemId(Guid itemId)
+        public ProcessResult<SteamItemModel> GetItemDetailByItemId(Guid itemId)
         {
-            var returnData = new SteamItemModel();
+            var returnData = new ProcessResult<SteamItemModel>();
 
             var dbResponse = _itemDataAccess.GetItemDetailByItemId(itemId);
 
-            returnData.Id = dbResponse.Id;
-            returnData.ItemId = dbResponse.ItemId;
-            returnData.ItemName = dbResponse.ItemName;
-            returnData.ItemCondition = Enum.GetName(typeof(Enums.Enums.ItemExteriors), dbResponse.ItemCondition);
-            returnData.ItemFloat = dbResponse.ItemFloat;
-            returnData.HasSticker = dbResponse.HasSticker;
-            returnData.StickerId = dbResponse.StickerId;
+            if (dbResponse != null && dbResponse.Id != Guid.Empty)
+            {
+                try
+                {
+                    returnData.ReturnData.Id = dbResponse.Id;
+                    returnData.ReturnData.ItemId = dbResponse.ItemId;
+                    returnData.ReturnData.ItemName = dbResponse.ItemName;
+                    returnData.ReturnData.ItemCondition = Enum.GetName(typeof(Enums.Enums.ItemExteriors), dbResponse.ItemCondition);
+                    returnData.ReturnData.ItemFloat = dbResponse.ItemFloat;
+                    returnData.ReturnData.HasSticker = dbResponse.HasSticker;
+                    returnData.ReturnData.StickerId = dbResponse.StickerId;
+                }
+                catch (Exception ex)
+                {
+                    returnData.HasError = true;
+                    returnData.ErrorMessage = ex.Message + " --- " + ex.StackTrace;
+                }
+            }
+            else
+            {
+                returnData.ErrorMessage = "There is no Item with that ItemId";
+                returnData.HasError = false;
+            }
 
             return returnData;
         }
