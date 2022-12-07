@@ -1,9 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OKR_Steam.Business.IBS;
-using OKR_Steam.Models.ResponseModels;
-using System.Data;
-using System;
-using System.Dynamic;
 
 
 namespace OKR_Steam.Controllers.C

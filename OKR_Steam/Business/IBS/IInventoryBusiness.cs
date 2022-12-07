@@ -1,4 +1,4 @@
-﻿using OKR_Steam.Models.ResponseModels;
+﻿using Resources.ResponseModels;
 
 namespace OKR_Steam.Business.IBS
 {

@@ -1,10 +1,8 @@
 ﻿using OKR_Steam.DataAccess.IDA;
-using OKR_Steam.Models.DBModels;
-using OKR_Steam.Models.DBModels.DBRequestModels;
-using OKR_Steam.Models.DBModels.DBResponseModels;
-using OKR_Steam.Models.DBModels.Tables;
-using OKR_Steam.Models.ResponseModels;
-
+using Resources.AppDbContex;
+using Resources.DBModels.RequestModels;
+using Resources.DBModels.ResponseModels;
+using Resources.DBModels.Tables;
 
 namespace OKR_Steam.DataAccess.DA
 {

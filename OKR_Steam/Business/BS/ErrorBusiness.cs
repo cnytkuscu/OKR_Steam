@@ -1,7 +1,5 @@
 ﻿using OKR_Steam.Business.IBS;
 using OKR_Steam.DataAccess.IDA;
-using OKR_Steam.Models.DBModels.Tables;
-using OKR_Steam.Models.ResponseModels;
 
 namespace OKR_Steam.Business.BS
 {

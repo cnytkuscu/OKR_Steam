@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OKR_Steam.Models.DBModels;
+using Resources.DBModels.Tables;
 
-namespace OKR_Steam.Models.DBModels.Tables
+namespace Resources.AppDbContex
 {
     public class AppDbContext : DbContext
     {

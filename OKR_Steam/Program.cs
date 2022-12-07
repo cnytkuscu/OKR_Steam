@@ -4,7 +4,6 @@ using OKR_Steam.Business.IBS;
 using OKR_Steam.DataAccess.DA;
 using OKR_Steam.DataAccess.IDA;
 using OKR_Steam.Middlewares;
-using OKR_Steam.Models.DBModels.Tables;
 using Serilog;
 
 public class Program

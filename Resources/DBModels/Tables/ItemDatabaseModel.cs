@@ -1,8 +1,12 @@
-﻿using static OKR_Steam.Enums.Enums;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace OKR_Steam.Models.DBModels.DBResponseModels
+namespace Resources.DBModels.Tables
 {
-    public class SteamItemDBResponseModel
+    public class ItemDatabaseModel
     {
         public Guid Id { get; set; }
         public Guid ItemId { get; set; }

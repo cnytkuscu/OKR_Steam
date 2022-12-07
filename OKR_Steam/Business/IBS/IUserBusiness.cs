@@ -1,8 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using OKR_Steam.Models.DBModels;
-using OKR_Steam.Models.DBModels.DBRequestModels;
-using OKR_Steam.Models.RequestModels;
-using OKR_Steam.Models.ResponseModels;
+﻿using Resources.DBModels.RequestModels;
+using Resources.RequestModels;
 
 namespace OKR_Steam.Business.IBS
 {

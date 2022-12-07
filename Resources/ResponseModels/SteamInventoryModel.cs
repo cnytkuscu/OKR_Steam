@@ -1,4 +1,4 @@
-﻿namespace OKR_Steam.Models.ResponseModels
+﻿namespace Resources.ResponseModels
 {
     public class SteamInventoryModel
     {
