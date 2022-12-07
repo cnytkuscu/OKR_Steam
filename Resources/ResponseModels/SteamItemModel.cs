@@ -1,6 +1,6 @@
-﻿using static OKR_Steam.Enums.Enums;
+﻿
 
-namespace OKR_Steam.Models.ResponseModels
+namespace Resources.ResponseModels
 {
     public class SteamItemModel
     {

@@ -1,5 +1,4 @@
-﻿using OKR_Steam.Models.RequestModels;
-using OKR_Steam.Validators.UserValidators;
+﻿using OKR_Steam.Validators.UserValidators;
 
 namespace OKR_Steam.Middlewares
 {

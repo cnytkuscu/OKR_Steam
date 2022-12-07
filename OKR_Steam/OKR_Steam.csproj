@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -34,4 +34,16 @@
     <Folder Include="Validators\ItemValidators\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Resources\Resources.csproj" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<Using Include="Resources.AppDbContex" />
+		<Using Include="Resources.DBModels.ResponseModels" />
+		<Using Include="Resources.DBModels.RequestModels" />
+		<Using Include="Resources.DBModels.Tables" />
+		<Using Include="Resources.RequestModels" />
+		<Using Include="Resources.ResponseModels" /> 
+	</ItemGroup> 
 </Project>

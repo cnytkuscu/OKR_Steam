@@ -1,4 +1,10 @@
-﻿namespace OKR_Steam.Models.DBModels.DBResponseModels
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Resources.DBModels.ResponseModels
 {
     public class SteamInventoryDBResponseModel
     {

@@ -1,10 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using OKR_Steam.Business.IBS;
+﻿using OKR_Steam.Business.IBS;
 using OKR_Steam.DataAccess.DA;
 using OKR_Steam.DataAccess.IDA;
-using OKR_Steam.Models.DBModels.DBResponseModels;
-using OKR_Steam.Models.DBModels.Tables;
-using OKR_Steam.Models.ResponseModels;
+using Resources.AppDbContex;
+using Resources.DBModels.ResponseModels;
+using Resources.ResponseModels;
 
 namespace OKR_Steam.Business.BS
 {

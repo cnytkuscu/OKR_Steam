@@ -1,18 +1,10 @@
-﻿using Azure;
-using Azure.Core;
-using Microsoft.AspNetCore.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using OKR_Steam.Business.BS;
 using OKR_Steam.Business.IBS;
 using OKR_Steam.DataAccess.DA;
-using OKR_Steam.Models.DBModels.Tables;
-using OKR_Steam.Models.ResponseModels;
 using RestSharp;
-using System.Diagnostics;
-using System.Text.Json;
 
 namespace OKR_Steam.Middlewares
 {

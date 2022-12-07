@@ -1,6 +1,4 @@
 ﻿using FluentValidation;
-using OKR_Steam.Models.DBModels.DBRequestModels;
-using OKR_Steam.Models.RequestModels;
 
 namespace OKR_Steam.Validators.UserValidators
 {

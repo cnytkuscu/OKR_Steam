@@ -1,6 +1,4 @@
-﻿using OKR_Steam.Models.ResponseModels;
-
-namespace OKR_Steam.DataAccess.IDA
+﻿namespace OKR_Steam.DataAccess.IDA
 {
     public interface IErrorDataAccess
     {

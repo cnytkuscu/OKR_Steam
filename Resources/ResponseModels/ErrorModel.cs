@@ -1,8 +1,7 @@
-﻿namespace OKR_Steam.Models.DBModels.Tables
+﻿namespace Resources.ResponseModels
 {
-    public class ErrorLogDatabaseModel
-    {
-        public Guid Id { get; set; }
+    public class ErrorModel
+    { 
         public DateTime Date { get; set; }
         public bool IsAuthenticated { get; set; }
         public string ExceptionType { get; set; }
@@ -10,4 +9,10 @@
         public string Message { get; set; }
         public int StatusCode { get; set; }
     }
+     
+              
+                
+                
+                 
+               
 }

@@ -1,6 +1,12 @@
-﻿namespace OKR_Steam.Models.DBModels.Tables
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Resources.DBModels.ResponseModels
 {
-    public class ItemDatabaseModel
+    public class SteamItemDBResponseModel
     {
         public Guid Id { get; set; }
         public Guid ItemId { get; set; }

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OKR_Steam.Business.IBS;
-using OKR_Steam.Models.ResponseModels;
 
 namespace OKR_Steam.Controllers.C
 {

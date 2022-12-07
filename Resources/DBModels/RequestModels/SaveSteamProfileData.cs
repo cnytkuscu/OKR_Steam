@@ -1,4 +1,10 @@
-﻿namespace OKR_Steam.Models.DBModels.DBRequestModels
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Resources.DBModels.RequestModels
 {
     public class SaveSteamProfileData
     {
@@ -12,8 +18,4 @@
         public int LastUpdated { get; set; }
 
     }
-
-
-
-    
 }
