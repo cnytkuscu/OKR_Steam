@@ -27,6 +27,9 @@ namespace OKR_Steam.Controllers.C
         {
             var returnData = new ProcessResult<SteamProfileModel>();
 
+
+            throw new Exception("hata");
+
             var requestData = new SteamProfileRequestModel()
             {
                 Username = username

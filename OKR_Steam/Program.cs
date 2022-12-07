@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
 using OKR_Steam.Business.BS;
 using OKR_Steam.Business.IBS;
 using OKR_Steam.DataAccess.DA;
@@ -44,13 +43,16 @@ public class Program
         var app = builder.Build();
         
         //hata olursa bu sayfaya gidecek.
-        app.UseExceptionHandler("/error");
+        app.UseExceptionHandler("/Error");
 
         // Configure the HTTP request pipeline.
 
         app.UseSwagger();
         app.UseSwaggerUI();
-        app.UseMiddleware<RequestCheckMiddleware>();
+
+        //app.ErrorHandlerMiddlewareConnector();
+        app.UseMiddleware<ErrorHandlerMiddleware>();
+        //app.UseMiddleware<RequestCheckMiddleware>();
 
 
         app.UseHttpsRedirection();
