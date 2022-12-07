@@ -1,6 +1,4 @@
-﻿using OKR_Steam.DataAccess.IDA;
-
-namespace OKR_Steam.DataAccess.DA
+﻿namespace OKR_Steam.DataAccess.DA
 {
     public class InventoryDataAccess : IInventoryDataAccess
     {

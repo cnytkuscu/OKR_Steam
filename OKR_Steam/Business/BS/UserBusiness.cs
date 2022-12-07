@@ -1,7 +1,4 @@
-﻿using OKR_Steam.Business.IBS;
-using OKR_Steam.DataAccess.IDA;
-
-namespace OKR_Steam.Business.BS
+﻿namespace OKR_Steam.Business.BS
 {
     public class UserBusiness : IUserBusiness
     {
@@ -31,8 +28,8 @@ namespace OKR_Steam.Business.BS
                                 Id = dbResponse.Id,
                                 steamid = dbResponse.SteamId,
                                 personaname = dbResponse.Username,
-                                profilestate = Enum.IsDefined(typeof(Enums.Enums.ProfileStates), dbResponse.ProfileState) == true ?
-                                        Enum.GetName(typeof(Enums.Enums.ProfileStates), dbResponse.ProfileState) : "Offline",
+                                profilestate = Enum.IsDefined(typeof(Enums.ProfileStates), dbResponse.ProfileState) == true ?
+                                        Enum.GetName(typeof(Enums.ProfileStates), dbResponse.ProfileState) : "Offline",
                                 profileurl = dbResponse.ProfileURL,
                                 primaryclanid = dbResponse.PrimaryClanId.ToString(),
                                 avatarhash = dbResponse.TradeURL,
@@ -75,8 +72,8 @@ namespace OKR_Steam.Business.BS
                     {
                         steamid = dbResponse.SteamId,
                         personaname = dbResponse.Username,
-                        profilestate = Enum.IsDefined(typeof(Enums.Enums.ProfileStates), dbResponse.ProfileState) == true ?
-                                        Enum.GetName(typeof(Enums.Enums.ProfileStates), dbResponse.ProfileState) : "Offline",
+                        profilestate = Enum.IsDefined(typeof(Enums.ProfileStates), dbResponse.ProfileState) == true ?
+                                        Enum.GetName(typeof(Enums.ProfileStates), dbResponse.ProfileState) : "Offline",
                         profileurl = dbResponse.ProfileURL,
                         primaryclanid = dbResponse.PrimaryClanId.ToString(),
                         avatarhash = dbResponse.TradeURL,
@@ -115,8 +112,8 @@ namespace OKR_Steam.Business.BS
                             {
                                 steamid = dbResponse.SteamId,
                                 personaname = dbResponse.Username,
-                                profilestate = Enum.IsDefined(typeof(Enums.Enums.ProfileStates), dbResponse.ProfileState) == true ?
-                                            Enum.GetName(typeof(Enums.Enums.ProfileStates), dbResponse.ProfileState) : "Offline",
+                                profilestate = Enum.IsDefined(typeof(Enums.ProfileStates), dbResponse.ProfileState) == true ?
+                                            Enum.GetName(typeof(Enums.ProfileStates), dbResponse.ProfileState) : "Offline",
                             }
                         }
                     };
@@ -136,13 +133,13 @@ namespace OKR_Steam.Business.BS
         }
 
         public ProcessResult<SteamProfileDatabaseModel> SaveSteamProfileData(SteamProfileRequestModel steamProfileModel)
-        {
+        {            
             var returnData = new ProcessResult<SteamProfileDatabaseModel>();
 
             var dbModel = new SaveSteamProfileData();
 
             dbModel.ProfileURL = steamProfileModel.ProfileURL;
-            dbModel.ProfileState = (int)Enums.Enums.ProfileStates.Online;
+            dbModel.ProfileState = (int)Enums.ProfileStates.Online;
             dbModel.PrimaryClanId = Guid.NewGuid().ToString();
             dbModel.UniqueId = Guid.NewGuid().ToString();
             dbModel.Username = steamProfileModel.Username;
@@ -180,8 +177,8 @@ namespace OKR_Steam.Business.BS
                 //Check the updated areas.
                 dbModel.SteamId = dbProfileResponse.response.players[0].steamid;
                 dbModel.Username = dbProfileResponse.response.players[0].personaname;
-                dbModel.ProfileState = String.IsNullOrEmpty(Enum.GetName(typeof(Enums.Enums.ProfileStates), steamProfileModel.ProfileState)) == true
-                    ? (int)((Enums.Enums.ProfileStates)Enum.Parse(typeof(Enums.Enums.ProfileStates), dbProfileResponse.response.players[0].profilestate))
+                dbModel.ProfileState = String.IsNullOrEmpty(Enum.GetName(typeof(Enums.ProfileStates), steamProfileModel.ProfileState)) == true
+                    ? (int)((Enums.ProfileStates)Enum.Parse(typeof(Enums.ProfileStates), dbProfileResponse.response.players[0].profilestate))
                     : steamProfileModel.ProfileState;
                 dbModel.ProfileURL = String.IsNullOrEmpty(steamProfileModel.ProfileURL) == true
                     ? dbProfileResponse.response.players[0].profileurl

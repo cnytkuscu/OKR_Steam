@@ -15,7 +15,6 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
-    <PackageReference Include="Microsoft.AspNet.SignalR.Core" Version="2.4.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
     <PackageReference Include="microsoft.entityframeworkcore.tools" Version="6.0.10">
@@ -35,6 +34,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
+    <ProjectReference Include="..\RequestResponseLogger\RequestResponseLogger.csproj" />
     <ProjectReference Include="..\Resources\Resources.csproj" />
   </ItemGroup>
 
@@ -45,5 +46,9 @@
 		<Using Include="Resources.DBModels.Tables" />
 		<Using Include="Resources.RequestModels" />
 		<Using Include="Resources.ResponseModels" /> 
+		<Using Include="Resources.Enums" />
+
+		<Using Include="Interfaces.IBS" />
+		<Using Include="Interfaces.IDA" />
 	</ItemGroup> 
 </Project>

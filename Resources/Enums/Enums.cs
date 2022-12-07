@@ -1,4 +1,10 @@
-﻿namespace OKR_Steam.Enums
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Resources.Enums
 {
     public static class Enums
     {
@@ -8,7 +14,7 @@
             Offline = 1,
             InGame = 2,
             Away = 3,
-            DoNotDisturb= 4
+            DoNotDisturb = 4
         }
 
         public enum ItemExteriors

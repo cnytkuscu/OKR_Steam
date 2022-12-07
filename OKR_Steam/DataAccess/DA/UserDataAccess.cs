@@ -1,10 +1,4 @@
-﻿using OKR_Steam.DataAccess.IDA;
-using Resources.AppDbContex;
-using Resources.DBModels.RequestModels;
-using Resources.DBModels.ResponseModels;
-using Resources.DBModels.Tables;
-
-namespace OKR_Steam.DataAccess.DA
+﻿namespace OKR_Steam.DataAccess.DA
 {
     public class UserDataAccess : IUserDataAccess
     {
@@ -75,6 +69,7 @@ namespace OKR_Steam.DataAccess.DA
 
         public SteamProfileDatabaseModel SaveSteamProfileData(SaveSteamProfileData steamProfileModel)
         {
+            
             var data = new SteamProfileDatabaseModel();
             data.SteamId = steamProfileModel.SteamId;
             data.Username = steamProfileModel.Username;
@@ -85,7 +80,7 @@ namespace OKR_Steam.DataAccess.DA
             data.LastUpdated = steamProfileModel.LastUpdated;
             data.TradeURL = steamProfileModel.TradeURL;
 
-            context.SteamProfile.Add(data);
+            context.SteamProfile.Add(data);            
             context.SaveChanges();
             return data;
         }

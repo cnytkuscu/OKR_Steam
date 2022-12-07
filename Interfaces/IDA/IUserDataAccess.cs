@@ -2,7 +2,7 @@
 using Resources.DBModels.ResponseModels;
 using Resources.DBModels.Tables;
 
-namespace OKR_Steam.DataAccess.IDA
+namespace Interfaces.IDA
 {
     public interface IUserDataAccess
     {
