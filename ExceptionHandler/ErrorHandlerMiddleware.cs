@@ -8,8 +8,6 @@ using RestSharp;
 
 namespace ExceptionHandler
 {
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    [IgnoreAntiforgeryToken]
     public class ErrorHandlerMiddleware : PageModel
     {
         public string? RequestId { get; set; }

@@ -14,7 +14,8 @@ namespace OKR_Steam.Models.DBModels.Tables
         public DbSet<InventoryDatabaseModel> Inventory { get; set; }
 
         public DbSet<ItemDatabaseModel> Item { get; set; }
+        public DbSet<ErrorLogDatabaseModel> ErrorLog { get; set; }
 
-       
+
     }
 }
