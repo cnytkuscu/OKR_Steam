@@ -69,6 +69,7 @@
 
         public SteamProfileDatabaseModel SaveSteamProfileData(SaveSteamProfileData steamProfileModel)
         {
+            
             var data = new SteamProfileDatabaseModel();
             data.SteamId = steamProfileModel.SteamId;
             data.Username = steamProfileModel.Username;
@@ -79,7 +80,7 @@
             data.LastUpdated = steamProfileModel.LastUpdated;
             data.TradeURL = steamProfileModel.TradeURL;
 
-            context.SteamProfile.Add(data);
+            context.SteamProfile.Add(data);            
             context.SaveChanges();
             return data;
         }

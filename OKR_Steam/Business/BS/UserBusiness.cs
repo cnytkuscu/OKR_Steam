@@ -133,7 +133,7 @@
         }
 
         public ProcessResult<SteamProfileDatabaseModel> SaveSteamProfileData(SteamProfileRequestModel steamProfileModel)
-        {
+        {            
             var returnData = new ProcessResult<SteamProfileDatabaseModel>();
 
             var dbModel = new SaveSteamProfileData();

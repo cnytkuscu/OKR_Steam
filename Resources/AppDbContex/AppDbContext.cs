@@ -16,6 +16,8 @@ namespace Resources.AppDbContex
         public DbSet<ItemDatabaseModel> Item { get; set; }
         public DbSet<ErrorLogDatabaseModel> ErrorLog { get; set; }
 
+        public DbSet<ServiceLogDatabaseModel> ServiceLog { get; set; }
+
 
     }
 }

@@ -1,7 +1,12 @@
+
 using Microsoft.EntityFrameworkCore;
 using OKR_Steam.Business.BS;
 using OKR_Steam.DataAccess.DA;
 using OKR_Steam.Middlewares;
+using RequestResponseLogger.DataAccess;
+using RequestResponseLogger.Interfaces;
+using RequestResponseLogger.Middleware;
+using RequestResponseLogger.Models;
 using Serilog;
 
 public class Program
@@ -28,10 +33,13 @@ public class Program
         builder.Services.AddScoped<IItemBusiness, ItemBusiness>();
         builder.Services.AddScoped<IItemDataAccess, ItemDataAccess>();
 
+        builder.Services.AddScoped<IServiceLogDataAccess, ServiceLogDataAccess>();
+        builder.Services.AddSingleton<IRequestResponseLogger, RequestResponseLogger.Models.RequestResponseLogger>();
+        builder.Services.AddScoped<IRequestResponseLogModelCreator, RequestResponseLogModelCreator>();
 
 
 
-        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+       
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
@@ -47,9 +55,11 @@ public class Program
         app.UseSwagger();
         app.UseSwaggerUI();
 
-        //app.ErrorHandlerMiddlewareConnector();
-        app.UseMiddleware<ErrorHandlerMiddleware>();
-        //app.UseMiddleware<RequestCheckMiddleware>();
+        //Harici Middleware
+        app.RequestResponseLogger();
+
+        //Dahili Middleware
+        app.UseMiddleware<ErrorHandlerMiddleware>();       
 
 
         app.UseHttpsRedirection();
