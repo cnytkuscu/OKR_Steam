@@ -35,6 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
     <ProjectReference Include="..\Resources\Resources.csproj" />
   </ItemGroup>
 
@@ -45,5 +46,9 @@
 		<Using Include="Resources.DBModels.Tables" />
 		<Using Include="Resources.RequestModels" />
 		<Using Include="Resources.ResponseModels" /> 
+		<Using Include="Resources.Enums" />
+
+		<Using Include="Interfaces.IBS" />
+		<Using Include="Interfaces.IDA" />
 	</ItemGroup> 
 </Project>

@@ -1,7 +1,4 @@
-﻿using OKR_Steam.Business.IBS;
-using OKR_Steam.DataAccess.IDA;
-
-namespace OKR_Steam.Business.BS
+﻿namespace OKR_Steam.Business.BS
 {
     public class ItemBusiness : IItemBusiness
     {
@@ -26,7 +23,7 @@ namespace OKR_Steam.Business.BS
                     returnData.ReturnData.Id = dbResponse.Id;
                     returnData.ReturnData.ItemId = dbResponse.ItemId;
                     returnData.ReturnData.ItemName = dbResponse.ItemName;
-                    returnData.ReturnData.ItemCondition = Enum.GetName(typeof(Enums.Enums.ItemExteriors), dbResponse.ItemCondition);
+                    returnData.ReturnData.ItemCondition = Enum.GetName(typeof(Enums.ItemExteriors), dbResponse.ItemCondition);
                     returnData.ReturnData.ItemFloat = dbResponse.ItemFloat;
                     returnData.ReturnData.HasSticker = dbResponse.HasSticker;
                     returnData.ReturnData.StickerId = dbResponse.StickerId;

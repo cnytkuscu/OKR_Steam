@@ -1,9 +1,4 @@
-﻿using OKR_Steam.Business.IBS;
-using OKR_Steam.DataAccess.DA;
-using OKR_Steam.DataAccess.IDA;
-using Resources.AppDbContex;
-using Resources.DBModels.ResponseModels;
-using Resources.ResponseModels;
+﻿using OKR_Steam.DataAccess.DA;
 
 namespace OKR_Steam.Business.BS
 {

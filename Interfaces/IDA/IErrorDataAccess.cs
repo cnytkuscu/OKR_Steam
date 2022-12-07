@@ -1,4 +1,6 @@
-﻿namespace OKR_Steam.DataAccess.IDA
+﻿using Resources.ResponseModels;
+
+namespace Interfaces.IDA
 {
     public interface IErrorDataAccess
     {

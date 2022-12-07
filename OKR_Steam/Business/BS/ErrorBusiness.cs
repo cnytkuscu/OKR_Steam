@@ -1,7 +1,4 @@
-﻿using OKR_Steam.Business.IBS;
-using OKR_Steam.DataAccess.IDA;
-
-namespace OKR_Steam.Business.BS
+﻿namespace OKR_Steam.Business.BS
 {
     public class ErrorBusiness : IErrorBusiness
     {

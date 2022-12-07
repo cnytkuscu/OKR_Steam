@@ -1,8 +1,4 @@
-﻿using OKR_Steam.DataAccess.IDA;
-using Resources.AppDbContex;
-using Resources.DBModels.ResponseModels;
-
-namespace OKR_Steam.DataAccess.DA
+﻿namespace OKR_Steam.DataAccess.DA
 {
     public class ItemDataAccess : IItemDataAccess
     {

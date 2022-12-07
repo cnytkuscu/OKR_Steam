@@ -5,7 +5,9 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OKR_Steam", "OKR_Steam\OKR_Steam.csproj", "{7B5E681A-5C47-4DBF-9DB6-6839561BC2CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "Resources\Resources.csproj", "{23DFDC2C-884D-45AE-9819-A0A1EAC032C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Resources", "Resources\Resources.csproj", "{23DFDC2C-884D-45AE-9819-A0A1EAC032C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{18552908-6639-412A-90F6-802E3569FEEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{23DFDC2C-884D-45AE-9819-A0A1EAC032C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23DFDC2C-884D-45AE-9819-A0A1EAC032C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23DFDC2C-884D-45AE-9819-A0A1EAC032C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18552908-6639-412A-90F6-802E3569FEEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18552908-6639-412A-90F6-802E3569FEEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18552908-6639-412A-90F6-802E3569FEEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18552908-6639-412A-90F6-802E3569FEEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

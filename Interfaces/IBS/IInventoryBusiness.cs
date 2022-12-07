@@ -1,6 +1,6 @@
 ﻿using Resources.ResponseModels;
 
-namespace OKR_Steam.Business.IBS
+namespace Interfaces.IBS
 {
     public interface IInventoryBusiness
     {

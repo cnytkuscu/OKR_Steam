@@ -1,4 +1,6 @@
-﻿namespace OKR_Steam.Business.IBS
+﻿using Resources.ResponseModels;
+
+namespace Interfaces.IBS
 {
     public interface IItemBusiness
     {
